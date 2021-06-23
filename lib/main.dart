@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Colors.teal,
+        primaryColor: Colors.amber[900],
       ),
       home: MyHomePage(title: 'Calculator'),
     );
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
-        leading: Icon(Icons.calculate, size: 45, color: Colors.blueGrey),
+        leading: Icon(Icons.calculate_rounded, size: 45, color: Colors.amber[900]),
         title: Text(widget.title,
             style: TextStyle(
                 color: Theme.of(context).primaryColor,
@@ -88,11 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: [
                   Expanded(
-                      child: Text(equation,
+                      child: Text(
+                    equation,
                     textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 21),
+                    style: TextStyle(color: Colors.grey, fontSize: 21),
                   )),
                 ],
               ),
@@ -106,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       textAlign: TextAlign.right,
                       style: TextStyle(
                         fontSize: 45,
-                        color: Colors.teal,
+                        color: Colors.blueGrey[800],
                       )),
                 ),
               ],
@@ -115,110 +114,102 @@ class _MyHomePageState extends State<MyHomePage> {
               thickness: 2,
               height: 2,
             ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-                  child: Column(
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+              child: Column(
+                children: [
+                  Row(
                     children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 15.0,
-                          ),
-                            TextButton(
-                              onPressed: clear,
-                              child: Text('C',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.w400,
-                                  )),
-                            ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          btn('%'),
-                          btn('÷'),
-                          SizedBox(
-                            width: 20.0,
-                          ),
-                          IconButton(
-                            onPressed: remove,
-                            icon: Icon(Icons.backspace_outlined, color: Colors.blueGrey),
-                          ),
-                        ],
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Container(
+                        width: 85,
+                        height: 78,
+                        color: Colors.transparent,
+                        child: MaterialButton(
+                          onPressed: clear,
+                          child: Text('C',
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.amber[900],
+                                fontWeight: FontWeight.w400,
+                              )),
+                        ),
                       ),
                       SizedBox(
-                        height: 5.0,
+                        width: 3.0,
                       ),
-                      Row(
-                        children: [
-                          btn('7'),
-                          btn('8'),
-                          btn('9'),
-                          btn('×'),
-                        ],
-                      ),
+                      btn('%'),
+                      btn('÷'),
                       SizedBox(
-                        height: 5.0,
+                        width: 20.0,
                       ),
-                      Row(
-                        children: [
-                          btn('4'),
-                          btn('5'),
-                          btn('6'),
-                          btn('−'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Row(
-                        children: [
-                          btn('1'),
-                          btn('2'),
-                          btn('3'),
-                          btn('+')
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Row(
-                        children: [
-                          btn('00'),
-                          btn('0'),
-                          btn('.'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.teal,
-                              borderRadius: BorderRadius.circular(13),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 1,
-                                  blurRadius: 1,
-                                  offset: Offset(0, 0), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            child: TextButton(
-                              onPressed: output,
-                              child: Text('=',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
-                                  )),
-                            ),
-                          ),
-                        ],
+                      IconButton(
+                        onPressed: remove,
+                        icon: Icon(Icons.backspace_outlined,
+                            color: Colors.amber[900]),
                       ),
                     ],
                   ),
-                ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Row(
+                    children: [
+                      btn('7'),
+                      btn('8'),
+                      btn('9'),
+                      btn('×'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Row(
+                    children: [
+                      btn('4'),
+                      btn('5'),
+                      btn('6'),
+                      btn('−'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Row(
+                    children: [btn('1'), btn('2'), btn('3'), btn('+')],
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Row(
+                    children: [
+                      btn('00'),
+                      btn('0'),
+                      btn('.'),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Container(
+                        width: 85,
+                        height: 78,
+                        color: Colors.transparent,
+                        child: MaterialButton(
+                          onPressed: output,
+                          child: Text('=',
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.amber[900],
+                                fontWeight: FontWeight.w400,
+                              )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -231,8 +222,8 @@ class _MyHomePageState extends State<MyHomePage> {
       width: 90,
       height: 80,
       child: MaterialButton(
-        minWidth: 85,
-        height: 80,
+        minWidth: 84,
+        height: 79,
         onPressed: () {
           setState(() {
             equation += value;
@@ -241,8 +232,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Text(value,
             style: TextStyle(
               fontSize: 30,
-              color: value == '=' || value == '+' || value == '−' || value == '×' || value == '÷' || value == '%'
-                  ? Colors.teal : Colors.blueGrey,
+              color: value == '+' ||
+                      value == '−' ||
+                      value == '×' ||
+                      value == '÷' ||
+                      value == '%'
+                  ? Colors.amber[900]
+                  : Colors.black,
               fontWeight: FontWeight.w400,
             )),
       ),
